@@ -1,0 +1,26 @@
+commerce_payment_paymentdrupal_v9.redirect_post:
+  path: 'https://www.paymentz.com/eng/process'
+  defaults:
+    _controller: '\Drupal\commerce_paymentdrupal_v9\Controller\paymentdrupal_v9RedirectController::post'
+  options:
+    no_cache: TRUE
+  requirements:
+    _access: 'TRUE'
+commerce_payment_paymentdrupal_v9.redirect_302:
+  path: 'https://www.paymentz.com/eng/process'
+  defaults:
+    _controller: '\Drupal\commerce_paymentdrupal_v9\Controller\paymentdrupal_v9RedirectController::on302'
+  options:
+    no_cache: TRUE
+  requirements:
+    _access: 'TRUE'
+commerce_payment_paymentdrupal_v9.notify:
+  path: '/payment/notify/{commerce_payment_gateway}'
+  defaults:
+    _controller: '\Drupal\commerce_payment\Controller\PaymentNotificationController::notifyPage'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      commerce_payment_gateway:
+        type: entity:commerce_payment_gateway
